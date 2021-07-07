@@ -1,0 +1,17 @@
+#!/bin/bash
+
+while getopts f:t: flag
+do
+    case "${flag}" in
+        f) from=${OPTARG};;
+        t) to=${OPTARG};;
+    esac
+done
+
+
+
+
+curl -X POST --data "ipFrom=${from}&ipTo=${to}" https://ipaddressguide.com/cidr > output.html;
+sed -n '/<pre>/,/<\/pre>/p' output.html > output_ipSpace;
+rm output.html;
+cat output_ipSpace;
