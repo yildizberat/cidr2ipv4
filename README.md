@@ -1,4 +1,4 @@
-# cidr2ipv4
+# IPRange2CIDR
 
 usage:
 
